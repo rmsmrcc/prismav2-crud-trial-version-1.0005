@@ -1,0 +1,42 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card {
+  position: absolute;
+  max-width:1000px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 6px;
+  background: #e9ecef;
+  justify-content: center;
+}
+
+header {
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+}
+
+.card-body{
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
