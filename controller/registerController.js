@@ -32,6 +32,6 @@ exports.postRegister = async (req, res) => {
       console.log("entry added");
       console.log("User: " + email);
       console.log("Password: " + password);
-      res.redirect('/home');
+      res.redirect('/');
     }
   };

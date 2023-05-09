@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Crud Application</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% students.forEach((student)=> {%>
+                        <% allstudents.forEach((student)=> {%>
                           <tr style="text-align: center;">
                             <td>
                               <%= student.id %>
@@ -122,14 +122,18 @@
                             <td class="d-flex flex-row justify-content-center gap-2">
                               <a href="/view/<%= student.id %>"><button class="btn btn-primary"><i
                                     class="fa-solid fa-eye"></i></button></a>
-                              <a href="/edit/<%= student.id %>"><button class="btn btn-success"><i
-                                    class="fa-solid fa-pen-to-square"></i></button></a>
-
-                              <form action="/delete/<%= student.id %>" method="post">
-                                <button type="submit" class="btn btn-danger"><i
-                                    class="fa-solid fa-square-minus"></i></i></button>
+                              <% if (userlevel==='Manager' || userlevel==='Admin' ) { %>
+                                <a href="/edit/<%= student.id %>"><button class="btn btn-success"><i
+                                      class="fa-solid fa-pen-to-square"></i></button></a>
+                                <% } %>
+                                  <% if (userlevel==='Admin' ) { %>
+                                    <form action="/delete/<%= student.id %>" method="post">
+                                      <button type="submit" class="btn btn-danger"><i
+                                          class="fa-solid fa-square-minus"></i></i></button>
+                                    </form>
+                                    <% } %>
                             </td>
-                            </form>
+
                       </tbody>
                       </tr>
                       <% }) %>

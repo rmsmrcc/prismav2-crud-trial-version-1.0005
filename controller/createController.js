@@ -52,5 +52,5 @@ exports.postCreate = async (req, res) => {
     } finally {
         await prisma.$disconnect();
     }
-    res.redirect('views');
+    res.redirect('home');
 };

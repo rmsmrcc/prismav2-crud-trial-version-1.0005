@@ -15,9 +15,12 @@ var loginRouter = require('./routes/login');
 
 var app = express();
 
-app.listen(3000, function () {
-  console.log('Node app is running on port 3000');
-});
+const PORT = process.env.PORT ||5000;
+
+app.listen(PORT, console.log(
+    `Server is running http://localhost:${PORT}/`
+));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

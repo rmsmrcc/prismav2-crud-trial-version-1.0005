@@ -1,6 +1,7 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+const session = require('express-session');
 
 const { decrypt } = require('caesar-encrypt');
 
@@ -18,6 +19,9 @@ exports.postLogin = async (req, res) => {
         if (user) {
             const decryptedpw = decrypt(user.password, user.shift);
             if (decryptedpw === password) {
+                const userId = user.id; // get the user ID from the result
+                session.userId = userId;
+                console.log(userId)
                 console.log(`logged in as user email-> ${email}, user password-> ${decryptedpw}, user encrypted pw -> ${user.password}`);
                 res.redirect('/home');
             } else {
