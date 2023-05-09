@@ -7,31 +7,32 @@
 5. modify the prisma file located @ /prisma/schema-prisma
 6. change datasource db provider to mongodb
 7. insert this after datasource db closing curly brace
-model Student_Info{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  firstname    String?
-  middlename   String?
-  lastname     String?
-  address      String?
-  country      String?
-  region       String?
-  city         String?
-  zipcode      String?
-  gender       String?
-  birthdate    String?
-  civilstatus  String?
-  hobbies      String?
-  keya         String?
-  keyb         String?
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @default(now())
+model Student_Info {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstname   String?
+  middlename  String?
+  lastname    String?
+  address     String?
+  country     String?
+  region      String?
+  city        String?
+  zipcode     String?
+  gender      String?
+  birthdate   String?
+  civilstatus String?
+  hobbies     String?
+  keya        String?
+  keyb        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 }
+
 model User {
-  id        String        @id @default(auto()) @map("_id") @db.ObjectId
-  email     String        @unique
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  email     String    @unique
   password  String?
-  createdAt  DateTime     @default(now())
-  userlevel String?       @default("User")
+  createdAt DateTime  @default(now())
+  userlevel String?   @default("User")
   shift     Int
 }
 8. prisma db push
